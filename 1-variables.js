@@ -1,5 +1,5 @@
 //what are variables
-//variables are containers for storing data values
+//variables are places in memory for storing data values
 
 //different variabe operations
 //1. declaration - creating a variable

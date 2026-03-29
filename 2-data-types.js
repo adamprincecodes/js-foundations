@@ -6,24 +6,24 @@
 let name = "Adam";
 console.log(name); // Output: Adam
 //2. Number - a numeric value
-let age = 30;
-console.log(age); // Output: 30
+let Age = 30;
+console.log(Age); // Output: 30
 //3. Boolean - a logical value that can be either true or false
-let isStudent = true;
-console.log(isStudent); // Output: true
+let IsStudent = true;
+console.log(IsStudent); // Output: true
 //4. Undefined - a variable that has been declared but not assigned a value
-let email;
-console.log(email); // Output: undefined
+let Email;
+console.log(Email); // Output: undefined
 //5. Null - a variable that has been assigned the value of null
-let address = null;
-console.log(address); // Output: null
+let Address = null;
+console.log(Address); // Output: null
 //6. Object - a collection of key-value pairs
-let person = {
+let Person = {
   name: "Adam",
   age: 30,
   isStudent: true,
 };
-console.log(person); // Output: { name: "Adam", age: 30, isStudent: true }
+console.log(Person); // Output: { name: "Adam", age: 30, isStudent: true }
 
 //different ways to declare data types
 //1. using literals
