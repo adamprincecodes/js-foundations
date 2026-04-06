@@ -84,3 +84,134 @@ let passed = score >= passmark;
 let above50 = score > 50;
 console.log("passed:", passed);
 console.log("Scored above 50:", above50);
+
+//Create variables for order amount and distance. Determine if delivery is free when the order amount is above a threshold and the distance is within a limit
+let orderAmount = 150;
+let distance = 5;
+let freeDelivery = orderAmount > 100 && distance <= 10;
+console.log("Free delivery:", freeDelivery);
+
+//Create variables for salary and credit score. Determine if a loan is approved when salary is above a threshold and credit score is high enough.
+let salary = 45000;
+let creditScore = 690;
+let loanApproved = salary > 40000 && creditScore >= 650;
+console.log("Loan approved:", loanApproved);
+
+//Create variables for attendance percentage and assignment completion status. Determine if a student can sit for an exam when both conditions are met.
+let attendancePercentage = 80;
+let assignmentCompleted = true;
+let canSitForExam = attendancePercentage >= 75 && assignmentCompleted;
+console.log("Can sit for exam:", canSitForExam);
+
+/*
+Write a function that:
+Takes water units consumed
+Applies:
+First 10 units → KES 20/unit
+Next 20 units → KES 15/unit
+Remaining → KES 10/unit
+Returns total bill
+*/
+
+function unitsconsumed(units) {
+  let bill = 0;
+  if (units <= 10) {
+    bill = units * 20;
+  } else if (units <= 30) {
+    bill = 10 * 20 + (units - 10) * 15;
+  } else if (units > 30) {
+    bill = 10 * 20 + 10 * 15 + (units - 30) * 10;
+  }
+  return bill;
+}
+console.log(unitsconsumed(25)); // Output: 100
+
+/*
+A telecom system needs to validate airtime purchases. Write a function that:
+- Takes phoneNumber, amount, and balance
+- Checks:
+    - Phone number must be 10 digits
+    - Amount must be greater than 0
+    - User must have enough balance
+- Deducts the amount if valid and returns the new balance
+- Otherwise returns an error message
+*/
+function airtimepurchase(phonenumber, amount, balance) {
+  if (phonenumber.length !== 10) {
+  }
+  if (amount > 0) {
+  }
+  if (balance > amount) {
+  }
+  return balance - amount;
+}
+console.log(airtimepurchase("1234567890", 50, 100)); // Output: 50
+
+/*
+A school wants to automate grading. Write a function that:
+- Accepts an array of student scores
+- Uses a loop to:
+    - Assign grades: 70+ → A, 60–69 → B, 50–59 → C, Below 50 → Fail
+- Returns a summary:
+    - Total students
+    - Number of passes and fails
+*/
+function gradeStudents(scores) {
+  let summary = {
+    totalStudents: scores.length,
+    passes: 4,
+    fails: 2,
+  };
+
+  for (let score of scores) {
+    if (score >= 70) {
+      // Assign grade A
+    } else if (score >= 60) {
+      // Assign grade B
+    } else if (score >= 50) {
+      // Assign grade C
+    } else {
+      // Assign grade Fail
+    }
+  }
+
+  return summary;
+}
+console.log(gradeStudents([85, 72, 67, 45, 90, 49]));
+
+/*
+A supermarket applies discounts based on total purchase. Write a function that:
+- Takes an array of item prices
+- Calculates total cost using a loop
+- Applies:
+    - 10% discount if total > 5000
+    - 5% discount if total > 2000
+- Returns final payable amount
+*/
+function applydiscount(items) {
+  let price = 0;
+  for (let item of items) {
+    price += item;
+  }
+  if (price > 5000) return price * 0.9;
+  else if (price > 2000) return price * 0.95;
+  else return price;
+}
+console.log(applydiscount([7000]));
+
+/*
+A parking system charges based on hours parked. Write a function that:
+- Takes number of hours parked
+- Charges:
+    - First 2 hours → KES 50/hour
+    - Additional hours → KES 30/hour
+- Uses conditionals to calculate total cost
+*/
+function calcuteparkingcost(hours) {
+  if (hours <= 2) {
+    return 2 * 50;
+  } else if (hours > 2) {
+    return 2 * 50 + (hours - 2) * 30;
+  }
+}
+console.log(calcuteparkingcost(7));

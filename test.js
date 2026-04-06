@@ -1,6 +1,8 @@
-let score = 70;
-let passmark = 60;
-let passed = score >= passmark;
-let above50 = score > 50;
-console.log("passed:", passed);
-console.log("Scored above 50:", above50);
+function calcuteparkingcost(hours) {
+  if (hours <= 2) {
+    return 2 * 50;
+  } else if (hours > 2) {
+    return 2 * 50 + (hours - 2) * 30;
+  }
+}
+console.log(calcuteparkingcost(7));
