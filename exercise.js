@@ -145,7 +145,7 @@ function airtimepurchase(phonenumber, amount, balance) {
   }
   return balance - amount;
 }
-console.log(airtimepurchase("1234567890", 50, 100)); // Output: 50
+console.log(airtimepurchase("1234567890", 70, 100));
 
 /*
 A school wants to automate grading. Write a function that:
