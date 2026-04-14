@@ -24,15 +24,29 @@ let Person = {
   isStudent: true,
 };
 console.log(Person); // Output: { name: "Adam", age: 30, isStudent: true }
+//7. Array - a list of values enclosed in square brackets
+let Colors = ["red", "green", "blue"];
+console.log(Colors); // Output: ["red", "green", "blue"]
+//8. Function - a block of code that can be executed when called
+function greet(name) {
+  return "Hello, " + name + "!";
+}
+console.log(greet("Adam")); // Output: Hello, Adam!
+//9. Symbol - a unique and immutable data type used to create unique identifiers
+let id = Symbol("id");
+console.log(id); // Output: Symbol(id)
+//10. BigInt - a numeric data type that can represent integers with arbitrary precision
+let bigInt = 1234567890123456789012345678901234567890n;
+console.log(bigInt); // Output: 1234567890123456789012345678901234567890n
 
 //different ways to declare data types
 //1. using literals
 let name = "Adam"; // String literal
-let age = 30; // Number literal
-let isStudent = true; // Boolean literal
-let email; // Undefined literal
-let address = null; // Null literal
-let person = {
+let Age = 30; // Number literal
+let IsStudent = true; // Boolean literal
+let Email; // Undefined literal
+let Address = null; // Null literal
+let Person = {
   // Object literal
   name: "Adam",
   age: 30,

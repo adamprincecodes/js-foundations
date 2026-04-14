@@ -215,3 +215,155 @@ function calcuteparkingcost(hours) {
   }
 }
 console.log(calcuteparkingcost(7));
+
+/*
+1. Classroom Attendance & Performance Analyzer
+
+A school system analyzes attendance and performance trends.
+
+Function Requirements:
+- Takes an array of students: { name, attendance: [true/false], scores: [numbers] }
+- Uses loops to:
+    - Calculate attendance percentage per student
+    - Calculate average score
+- Rules:
+    - Student is "At Risk" if:
+        - Attendance < 75% OR
+        - Average score < 50
+- Returns:
+    - Summary per student
+    - Total number of at-risk students
+*/
+function analyzeStudents(students) {
+  let atRiskCount = 0;
+  const summary = students.map((student) => {
+    const attendancePercentage =
+      (student.attendance.filter((a) => a).length / student.attendance.length) *
+      100;
+    const averageScore =
+      student.scores.reduce((a, b) => a + b, 0) / student.scores.length;
+    const isAtRisk = attendancePercentage < 75 || averageScore < 50;
+    if (isAtRisk) atRiskCount++;
+    return { ...student, attendancePercentage, averageScore, isAtRisk };
+  });
+  return { summary, atRiskCount };
+}
+console.log(
+  analyzeStudents([
+    {
+      name: "Adam",
+      attendance: [true, true, false, true],
+      scores: [80, 90, 70],
+    },
+    {
+      name: "Bob",
+      attendance: [false, false, true, false],
+      scores: [40, 50, 30],
+    },
+    {
+      name: "Aaron",
+      attendance: [true, true, true, true],
+      scores: [60, 70, 80],
+    },
+  ]),
+);
+
+/*3. E-commerce Cart with Inventory Management
+
+An online store must manage stock while processing orders.
+
+Function Requirements:
+- Takes:
+    - products (array of objects: name, price, stock)
+    - cart (array: name, quantity)
+- Uses loops to:
+    - Match cart items with products
+    - Check stock availability
+- Rules:
+    - If stock is insufficient, skip item and log it
+    - Deduct stock for successful purchases
+- Calculates:
+    - Total cost
+    - Applies discount: 10% if total > 10,000
+- Returns:
+    - Final bill
+    - Updated inventory
+    - List of skipped items
+*/
+let products = [
+  { name: "Laptop", price: 99999, stock: 10 },
+  { name: "Smartphone", price: 49999, stock: 20 },
+  { name: "Headphones", price: 19999, stock: 15 },
+];
+
+let cart = [
+  { name: "Laptop", Quantity: 1 },
+  { name: "Smartphone", Quantity: 2 },
+  { name: "Headphones", Quantity: 3 },
+];
+function processOrder(cart) {
+  let totalCost = 0;
+  let skippedItems = [];
+  cart.forEach((cartItem) => {
+    const product = products.find((p) => p.name === cartItem.name);
+    if (product) {
+      if (product.stock >= cartItem.Quantity) {
+        totalCost += product.price * cartItem.Quantity;
+        product.stock -= cartItem.Quantity;
+      } else {
+        skippedItems.push(cartItem);
+      }
+    }
+  });
+  if (totalCost > 10000) {
+    discount = totalCost * 0.1; // Apply 10% discount
+    totalCost -= discount;
+    console.log(`Discount applied. Final Bill: KES ${totalCost}`);
+  }
+  return { skippedItems };
+}
+console.log(processOrder(cart));
+
+/*
+2. Smart Home Energy Consumption Optimizer
+
+A smart home system analyzes appliance usage.
+
+Function Requirements:
+- Takes an array of appliances: { name, powerRating (watts), hoursUsedPerDay }
+- Uses loops to:
+    - Calculate daily energy consumption per appliance: energy = (powerRating * hours) / 1000 (kWh)
+    - Calculate total household consumption
+- Rules:
+    - If total consumption > 30 kWh:
+        - Suggest appliances consuming more than 20% of total for reduction
+- Returns:
+    - Total consumption
+    - List of high-consumption appliances
+    - Optimization suggestions
+*/
+let appliances = [
+  { name: "Refrigerator", powerRating: 30000, hoursUsedPerDay: 24 },
+  { name: "Washing Machine", powerRating: 2000, hoursUsedPerDay: 3 },
+  { name: "Microwave", powerRating: 1000, hoursUsedPerDay: 6 },
+];
+let totalEnergyConsumption = 0;
+let highConsumptionAppliances = [];
+appliances.forEach((appliance) => {
+  const energyConsumption =
+    (appliance.powerRating * appliance.hoursUsedPerDay) / 1000;
+  totalEnergyConsumption += energyConsumption;
+});
+if (totalEnergyConsumption > 30) {
+  appliances.forEach((appliance) => {
+    const energyConsumption =
+      (appliance.powerRating * appliance.hoursUsedPerDay) / 1000;
+    if (energyConsumption > totalEnergyConsumption * 0.2) {
+      highConsumptionAppliances.push(appliance.name);
+    }
+  });
+}
+console.log("Total Energy Consumption: " + totalEnergyConsumption + " kWh");
+console.log(
+  "High Consumption Appliances: " + highConsumptionAppliances.join(", "),
+);

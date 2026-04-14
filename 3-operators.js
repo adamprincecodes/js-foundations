@@ -59,5 +59,10 @@ console.log(k); // Output: Less than or equal to 10
 //6. String operators - perform operations on strings
 let str1 = "Hello";
 let str2 = "World";
+//concatenation
 let str3 = str1 + " " + str2; // Concatenation operator
 console.log(str3); // Output: Hello World
+//interpolation
+let name = "Adam";
+let greeting = `Hello, ${name}!`;
+console.log(greeting); // Output: Hello, Adam!
