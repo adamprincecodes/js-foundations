@@ -1,0 +1,8 @@
+.container {
+  length: 100%;
+  display: flex;
+  justify-content: center;
+}
+.form-control {
+  width: 20px;
+}
